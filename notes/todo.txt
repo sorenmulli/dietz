@@ -1,8 +1,10 @@
 # Data
 - First version of song JSON schema
 - First scraping script for songs
+- Set linked attributes at runtime
 
 # Webapp
+- URL per-song? IMO UUID ugly
 - First version of song lyrics UI
 - Frontpage with all songs
 - Dark mode
