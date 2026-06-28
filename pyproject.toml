@@ -1,0 +1,16 @@
+[project]
+name = "dietz"
+version = "0.1.0"
+description = "A hymnal-style online songbook with a minimalistic, phonefriendly UI on top of a catalogue of songs with rich metadata."
+readme = "README.md"
+authors = [
+    { name = "sorenmulli", email = "soren@vholm.dk" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.138.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

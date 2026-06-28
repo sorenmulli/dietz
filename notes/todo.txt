@@ -1,0 +1,13 @@
+# Data
+- First version of song JSON schema
+- First scraping script for songs
+
+# Webapp
+- First version of song lyrics UI
+- Frontpage with all songs
+- Dark mode
+- Clickable category
+- By author
+- Timeline
+- Search
+- Recommendations
