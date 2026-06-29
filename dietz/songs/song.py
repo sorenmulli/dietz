@@ -8,6 +8,7 @@ class SourceType(StrEnum):
     OFFICIAL_HYMNAL = "official-hymnal"
     OFFICIAL_HIGHSCHOOL = "official-highschool"
     UNOFFICIAL_CATALOGUE = "unofficial-catalogue"
+    INDIVIDUAL_CONTRIBUTION = "individual-contribution"
 
 
 class Source(BaseModel):
@@ -16,19 +17,28 @@ class Source(BaseModel):
     address: str | None
     description: str | None
     source_type: SourceType
+    comment: str | None
 
 class Song(BaseModel):
     """
     The central class describing one presented song.
     """
-    song_id: UUID4
-    created: datetime
-    updated: datetime
 
     songbook_ids: list[UUID4]
     """
     Which songbooks does this song belong to?
     Must match an ID for a sonbook
+    """
+
+    titles: list[str]
+    """
+    Different candidate tiles.
+    First one considered primary
+    """
+
+    categories: list[str]
+    """
+    Categories.
     """
 
     authorship: list[Attribution]
@@ -42,28 +52,23 @@ class Song(BaseModel):
     First one is considered primary
     """
 
-    titles: list[str]
+
+    sources: list[Source]
     """
-    Different candidate tiles.
-    First one considered primary
+    The source(s) for this song.
     """
 
-    source: Source
-    """
-    The source for this song.
-    """
 
     verses: list[str]
     """
     Full lyrics divided into verses
     """
 
-    categories: list[str]
-    """
-    Categories.
-    """
-
     description: str | None
     """
     Potential details about the song
     """
+
+    song_id: UUID4
+    created: datetime
+    updated: datetime

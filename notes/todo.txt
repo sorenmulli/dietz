@@ -1,7 +1,13 @@
 # Data
-- First version of song JSON schema
-- First scraping script for songs
+- Scrape psalms
+- Scrape full Ugle DK
+- Scrape Højskolesangbogen
 - Set linked attributes at runtime
+- See other TODOs on data models
+- Names for three songbooks: Salmer, Sangskat, Børnesange
+- Promotion script
+
+- Merging of different sources?
 
 # Webapp
 - URL per-song? IMO UUID ugly

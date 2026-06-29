@@ -2,9 +2,7 @@ from enum import StrEnum
 from pydantic import UUID4, BaseModel
 
 
-# TODO: Author type? E.g. human or category or unspecified
-
-class AuthorType(BaseModel):
+class AuthorType(StrEnum):
     NAMED_AUTHOR = "named-author"
     BIBLICAL = "biblical"
     FOLK = "folk"
@@ -12,10 +10,12 @@ class AuthorType(BaseModel):
     UNSPECIFIED_TYPE = "unspecified-type"
 
 class Author(BaseModel):
-    author_id: UUID4
     name: str
-    description: str | None
     author_type: AuthorType
+    description: str | None
+    author_id: UUID4
+
+    # TODO: Indication of whether text author or melody composer or both?
 
 
 class AuthorRole(StrEnum):
@@ -25,15 +25,15 @@ class AuthorRole(StrEnum):
 
 
 class Attribution(BaseModel):
-    author_id: UUID4
-    """
-    Must match id of an existing Author
-    """
     year: int | None
     """If possible, when composition happened"""
     year_string: str | None
     """If something else should be presented than just year"""
     author_role: AuthorRole
+    author_id: UUID4
+    """
+    Must match id of an existing Author
+    """
 
 
 class Melody(BaseModel):
