@@ -7,9 +7,11 @@ from .authorship import Attribution, Melody
 class SourceType(StrEnum):
     OFFICIAL_HYMNAL = "official-hymnal"
     OFFICIAL_HIGHSCHOOL = "official-highschool"
+    UNOFFICIAL_CATALOGUE = "unofficial-catalogue"
 
 
 class Source(BaseModel):
+    name: str
     accessed: datetime
     address: str | None
     description: str | None
