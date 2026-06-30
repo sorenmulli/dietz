@@ -6,16 +6,17 @@ class AuthorType(StrEnum):
     NAMED_AUTHOR = "named-author"
     BIBLICAL = "biblical"
     FOLK = "folk"
-    NATIONALITY = "nationality"
     UNSPECIFIED_TYPE = "unspecified-type"
+    UNKNOWN = "unknown"
 
 class Author(BaseModel):
-    name: str
+    name: str | None
     author_type: AuthorType
     description: str | None
     author_id: UUID4
 
-    # TODO: Indication of whether text author or melody composer or both?
+    composer: bool
+    writer: bool
 
 
 class AuthorRole(StrEnum):
@@ -34,6 +35,7 @@ class Attribution(BaseModel):
     """
     Must match id of an existing Author
     """
+    comment: str | None = None
 
 
 class Melody(BaseModel):

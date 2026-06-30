@@ -72,3 +72,7 @@ class Song(BaseModel):
     song_id: UUID4
     created: datetime
     updated: datetime
+
+    @property
+    def title(self):
+        return self.titles[0]
