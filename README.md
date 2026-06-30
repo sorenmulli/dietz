@@ -16,7 +16,7 @@ A hymnal-style online songbook with a minimalistic, phone-friendly UI on top of 
 
 ## Architecture
 
-- Web-app: What about FastAPI serving Jinja2 docs.
+- Web-app: What about building static HTML and serving with Nginx?
 - Catalogue: At-rest is JSONL, loaded into memory and indexed at application startup.
 
 ## Name

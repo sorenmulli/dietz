@@ -1,6 +1,6 @@
-from pydantic import UUID4
+from pydantic import BaseModel, UUID4
 
 
-class Songbook:
+class Songbook(BaseModel):
     songbook_id: UUID4
     name: str
